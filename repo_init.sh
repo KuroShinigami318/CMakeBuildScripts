@@ -6,4 +6,4 @@ owner=KuroShinigami318
 apikey=$(./decrypt.sh $encryptedapikey)
 
 cd -
-python $SCRIPTDIR\\getDeps.py $apikey $owner libs_dep.json libs
+python3 $SCRIPTDIR\\getDeps.py $apikey $owner libs_dep.json libs
