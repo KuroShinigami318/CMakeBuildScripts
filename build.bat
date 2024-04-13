@@ -16,7 +16,7 @@ echo Building with config %config%
 pushd "../build"
 cmake -DCMAKE_BUILD_TYPE=%config% ..
 popd
-cmake --build ../build --config "%config%"
+cmake --build ../build --config "%config%" --parallel %NUMBER_OF_PROCESSORS%
 pause
 goto :EOF
 
