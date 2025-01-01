@@ -2,11 +2,25 @@ import argparse
 import base64
 
 class Encoder:
+    def __init__(self):
+        self.key = 'b_@dt'
+
     def encode(self, string):
-        return base64.b64encode(string.encode('utf-8'))
+        enc = []
+        for i in range(len(string)):
+            key_c = self.key[i % len(self.key)]
+            enc_c = chr((ord(string[i]) + ord(key_c)) % 256)
+            enc.append(enc_c)
+        return base64.urlsafe_b64encode("".join(enc).encode()).decode()
 
     def decode(self, encoded_str):
-        return base64.b64decode(encoded_str).decode('utf-8')
+        dec = []
+        enc = base64.urlsafe_b64decode(encoded_str).decode()
+        for i in range(len(enc)):
+            key_c = self.key[i % len(self.key)]
+            dec_c = chr((256 + ord(enc[i]) - ord(key_c)) % 256)
+            dec.append(dec_c)
+        return "".join(dec)
 
 def main():
     parser = argparse.ArgumentParser(description='')
