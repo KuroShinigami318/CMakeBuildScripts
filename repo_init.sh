@@ -1,9 +1,8 @@
 cd `dirname $0`
 SCRIPTDIR=`pwd`
 
-encryptedapikey=U2FsdGVkX1/KRyOHBhtFg4TGIORRxsPgn2NVXZA/hGFfG7xvFc3jFFKWeenovbikDDKdGlSpdZwZ65JX/9rIhplnskbaROt6lW8z/+rmdCGliPfzSHUJDP77YcUtv5EryV4NG7VA/t3RlJ7eJIfAmg==
+encryptedapikey=Z2l0aHViX3BhdF8xMUFNM1FHR0EwZ016UUZ4dFNxM1JzX0YydHFjYWZGNHo0UjZOZ2dwVHBmSG1yRWQyUG8wUDVrZTdIV0Y1SUZtSHBVSUVNVE40M2hMelk1VWVT
 owner=KuroShinigami318
-apikey=$(./decrypt.sh $encryptedapikey)
 
 cd -
-python3 $SCRIPTDIR/getDeps.py $apikey $owner libs_dep.json libs
+python3 $SCRIPTDIR/getDeps.py $encryptedapikey $owner libs_dep.json libs

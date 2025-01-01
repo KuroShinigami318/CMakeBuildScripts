@@ -6,11 +6,13 @@ import io
 import zipfile
 import os
 import shutil
+from encrypt import Encoder
 
 class ReposManager:
 
     def __init__(self, api_key, owner):
-        self.api_key = api_key
+        encoder = Encoder()
+        self.api_key = encoder.decode(api_key)
         self.owner = owner
         self.error = None
 
