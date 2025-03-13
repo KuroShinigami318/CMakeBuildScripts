@@ -40,6 +40,8 @@ class ReposManager:
         check.raise_for_status()
 
     def traverseAllDep(self, libs_dep_relative_path, dependencies_folder_name):
+        if not os.path.isfile(libs_dep_relative_path):
+            return
         f = open(libs_dep_relative_path)
         data = json.load(f)
         f.close()
