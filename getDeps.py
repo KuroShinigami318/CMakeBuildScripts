@@ -34,7 +34,8 @@ class ReposManager:
             temp, = zipfile.Path(z).iterdir()
             z.extractall(path=f'{os.curdir}/{dependency_folder_name}/')
             z.close()
-            os.rename(f'{os.curdir}/{dependency_folder_name}/{temp.name}', lib_dir)
+            while not os.path.exists(lib_dir):
+                os.rename(f'{os.curdir}/{dependency_folder_name}/{temp.name}', lib_dir)
         else:
             self.error = "Invalid token"
         check.raise_for_status()
