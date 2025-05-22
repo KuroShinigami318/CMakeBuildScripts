@@ -35,7 +35,11 @@ class ReposManager:
             z.extractall(path=f'{os.curdir}/{dependency_folder_name}/')
             z.close()
             while not os.path.exists(lib_dir):
-                os.rename(f'{os.curdir}/{dependency_folder_name}/{temp.name}', lib_dir)
+                try:
+                    os.rename(f'{os.curdir}/{dependency_folder_name}/{temp.name}', lib_dir)
+                except Exception as exc:
+                    print(exc)
+                    print(f'Retrying clone repo: {repo_name}')
         else:
             self.error = "Invalid token"
         check.raise_for_status()
