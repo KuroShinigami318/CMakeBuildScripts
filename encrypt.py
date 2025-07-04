@@ -1,5 +1,6 @@
 import argparse
 import base64
+import getpass
 
 class Encoder:
     def __init__(self):
@@ -24,11 +25,20 @@ class Encoder:
 
 def main():
     parser = argparse.ArgumentParser(description='')
-    parser.add_argument('string')
+    parser.add_argument(
+        '--output', '-o',
+        default="credentials",
+        type=str,
+        help="ouput file for encrypted string"
+    )
     args = parser.parse_args()
+    passwd_prompt = "Please enter password: "
     encoder = Encoder()
-    encoded_str = encoder.encode(args.string)
+    encoded_str = encoder.encode(getpass.getpass(prompt=passwd_prompt))
     print(f'encoded string: {encoded_str}')
+    if args.output is not None:
+       with open(args.output, "w") as f:
+        f.write(encoded_str)
 
 if __name__ == "__main__":
     main()

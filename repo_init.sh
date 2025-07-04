@@ -1,8 +1,9 @@
 cd `dirname $0`
 SCRIPTDIR=`pwd`
-
-encryptedapikey=w4nDiMK0w4zDqcOEwr7CsMOFw6jDgcKQccKlw4HClcKwwofCq8K1wpLCkcKqw4XDrsOawqvCi8ONwrvDlcKTwoTDg8K7wq_CkcK3wpzCpsOVw4XCkcKywqjDlMKscsOWw5zCscK0wqfDicOiwqnDi8KGw4vDlsOEw4zCusOZwr3CuMKRwoLCt8OIw5rDiHTClcOhwpLDgsKSwq3CtsK6wrl2wpvDgMOZwrjCocKXw4jDhcKVwq8=
+CREDENTIALS_PATH="$SCRIPTDIR/credentials"
+encryptedapikey=$(cat "$CREDENTIALS_PATH")
 owner=KuroShinigami318
 
 cd -
-python3 $SCRIPTDIR/getDeps.py $encryptedapikey $owner libs_dep.json libs
+alias python=python3
+python $SCRIPTDIR/getDeps.py $encryptedapikey $owner libs_dep.json libs
