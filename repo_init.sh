@@ -1,7 +1,7 @@
 cd `dirname $0`
 SCRIPTDIR=`pwd`
 
-encryptedapikey=w4nDiMK0w4zDqcOEwr7CsMOFw6jDgcKQccKlw4HClcKwwofCq8K1wpLCkcKqw4XDrsOawqvCi8ONwrvDlcKTwoTDg8K7wq_CkcK3wpzCpsOVw4XCkcKywqjDlMKscsOWw5zCscK0wqfDicOiwqnDi8KGw4vDlsOEw4zCusOZwr3CuMKRwoLCt8OIw5rDiHTClcOhwpLDgsKSwq3CtsK6wrl2wpvDgMOZwrjCocKXw4jDhcKVwq8=
+encryptedapikey=$(<"credentials")
 owner=KuroShinigami318
 
 cd -

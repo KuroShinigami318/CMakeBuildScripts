@@ -1,6 +1,6 @@
 @echo off &setlocal
 rem config owner and key
-set encryptedapikey=w4nDiMK0w4zDqcOEwr7CsMOFw6jDgcKQccKlw4HClcKwwofCq8K1wpLCkcKqw4XDrsOawqvCi8ONwrvDlcKTwoTDg8K7wq_CkcK3wpzCpsOVw4XCkcKywqjDlMKscsOWw5zCscK0wqfDicOiwqnDi8KGw4vDlsOEw4zCusOZwr3CuMKRwoLCt8OIw5rDiHTClcOhwpLDgsKSwq3CtsK6wrl2wpvDgMOZwrjCocKXw4jDhcKVwq8=
+set /p encryptedapikey=<credentials
 set owner=KuroShinigami318
 
 set scripts_dir=%~dp0
