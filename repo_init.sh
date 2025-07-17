@@ -1,7 +1,7 @@
 cd `dirname $0`
 SCRIPTDIR=`pwd`
-
-encryptedapikey=$(<"credentials")
+CREDENTIALS_PATH="$SCRIPTDIR/credentials"
+encryptedapikey=$(cat "$CREDENTIALS_PATH")
 owner=KuroShinigami318
 
 cd -
