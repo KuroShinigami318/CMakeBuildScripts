@@ -5,4 +5,5 @@ encryptedapikey=$(cat "$CREDENTIALS_PATH")
 owner=KuroShinigami318
 
 cd -
-command python $SCRIPTDIR/getDeps.py $encryptedapikey $owner libs_dep.json libs
+alias python=python3
+python $SCRIPTDIR/getDeps.py $encryptedapikey $owner libs_dep.json libs
