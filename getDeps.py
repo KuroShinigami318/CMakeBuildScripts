@@ -34,7 +34,11 @@ class ReposManager:
             temp, = zipfile.Path(z).iterdir()
             z.extractall(path=f'{os.curdir}/{dependency_folder_name}/')
             z.close()
+            retryCount = 0
             while not os.path.exists(lib_dir):
+                retryCount += 1
+                if retryCount > 10:
+                    raise Exception(f'Failed to clone repo: {repo_name}')
                 try:
                     os.rename(f'{os.curdir}/{dependency_folder_name}/{temp.name}', lib_dir)
                 except Exception as exc:
